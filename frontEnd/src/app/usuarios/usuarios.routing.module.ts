@@ -8,14 +8,21 @@ import { UsuariosComponent } from "app/usuarios/usuarios.component";
 import { LoginComponent } from "app/login/login.component";
 import { UsuarioDetalheComponent } from "app/usuarios/usuario-detalhe/usuario-detalhe.component";
 import { UsuarioFormularioComponent } from "app/usuarios/usuario-formulario/usuario-formulario.component";
+import { UsuariosGuard } from "app/guards/usuarios.guard";
+import { UsuariosDeactivateGuard } from "app/guards/usuarios.deactivate.guard";
 
 
 const UsuariosRoutes: Routes = [
     {
-        path: "", component: UsuariosComponent, children: [
+        path: "", component: UsuariosComponent,
+        canActivateChild: [UsuariosGuard],
+        children: [
             { path: "novo", component: UsuarioFormularioComponent },
             { path: ":id", component: UsuarioDetalheComponent },
-            { path: ":id/editar", component: UsuarioFormularioComponent },
+            {
+                path: ":id/editar", component: UsuarioFormularioComponent,
+                canDeactivate: [UsuariosDeactivateGuard]
+            },
         ]
     },
 

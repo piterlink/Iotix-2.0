@@ -11,13 +11,16 @@ import { AppRoutingModule } from "app/app.routing.module";
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from "app/login/auth.service";
+import { AuthGuard } from "app/guards/auth-guard";
+import { UsuariosGuard } from "app/guards/usuarios.guard";
+import { UsuarioFormularioComponent } from "app/usuarios/usuario-formulario/usuario-formulario.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    MaterializeDirective,
     PaginaInicialComponent,
-    LoginComponent,
-    MaterializeDirective
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ import { AuthService } from "app/login/auth.service";
     
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard,
+    UsuariosGuard
   ],
   bootstrap: [AppComponent]
 })

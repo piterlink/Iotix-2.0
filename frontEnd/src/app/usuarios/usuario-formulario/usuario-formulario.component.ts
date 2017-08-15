@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs/Rx";
 import { ActivatedRoute } from "@angular/router";
 import { UsuariosService } from "app/usuarios/usuarios.service";
+import { UsuarioDto } from "app/usuarios/usuario-formulario/UsuarioDto";
 
 @Component({
   selector: 'app-usuario-formulario',
@@ -14,18 +15,15 @@ export class UsuarioFormularioComponent implements OnInit, OnDestroy {
   private usuario: any;
   constructor(private route: ActivatedRoute, private usuariosService: UsuariosService) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.inscricao = this.route.params.subscribe((params: any) => {
       let id = params['id'];
-      if (id) {
-        this.usuario = this.usuariosService.getById(id);
-        if (this.usuario === null) {
-          this.usuario = {}
-        }
+      this.usuario = this.usuariosService.getById(id);
+      if (!this.usuario) {
+        this.usuario = {}
       }
-
-
     })
+    console.log(this.usuario);
   }
   ngOnDestroy() {
     this.inscricao.unsubscribe();

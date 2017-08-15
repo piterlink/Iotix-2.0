@@ -1,16 +1,13 @@
-<p>
+<h5>
   Lista de Usuários
-</p>
+</h5>
 <div class="row">
-  <div class="col s12">
-    <router-outlet></router-outlet>
-  </div>
-</div>
-<div class="row">
-  <div class="col s12">
+  <div class="col s12 m6">
     <div class="collection">
       <a class="collection-item" *ngFor="let usuario of usuarios" [routerLink]="[usuario.id]">{{ usuario.id }} - {{ usuario.nome }}</a>
     </div>
   </div>
-
+  <div class="col s12 m6">
+    <router-outlet></router-outlet>
+  </div>
 </div>

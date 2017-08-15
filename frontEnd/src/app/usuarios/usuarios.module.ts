@@ -8,6 +8,7 @@ import { UsuarioDetalheComponent } from "app/usuarios/usuario-detalhe/usuario-de
 import { UsuariosService } from "app/usuarios/usuarios.service";
 import { UsuariosRoutingModule } from "app/usuarios/usuarios.routing.module";
 import { UsuarioFormularioComponent } from "app/usuarios/usuario-formulario/usuario-formulario.component";
+import { UsuariosDeactivateGuard } from "app/guards/usuarios.deactivate.guard";
 
 @NgModule({
     imports: [
@@ -22,6 +23,6 @@ import { UsuarioFormularioComponent } from "app/usuarios/usuario-formulario/usua
         UsuarioDetalheComponent,
         UsuarioFormularioComponent
     ],
-    providers: [UsuariosService],
+    providers: [UsuariosService,UsuariosDeactivateGuard],
 })
 export class UsuariosModule { }

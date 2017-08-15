@@ -5,13 +5,13 @@ import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthService {
-  private usuarioAutenticar: boolean = false;
+  private usuarioAutenticado: boolean = false;
   public mostrarMenuEmmiter = new EventEmitter<boolean>();
   constructor(private router: Router) { }
 
   atenticar(usuario: UsuarioDto) {
     if (usuario.nome === 'piterlink' && usuario.senha === '123') {
-      this.usuarioAutenticar = true;
+      this.usuarioAutenticado = true;
 
       this.mostrarMenuEmmiter.emit(true);
 
@@ -19,10 +19,14 @@ export class AuthService {
 
 
     } else {
-      this.usuarioAutenticar = false;
+      this.usuarioAutenticado = false;
 
       this.mostrarMenuEmmiter.emit(false);
     }
+  }
+
+  autenticado(){
+    return this.usuarioAutenticado;
   }
 
 }
