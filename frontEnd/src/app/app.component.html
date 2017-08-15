@@ -1,3 +1,29 @@
-<h1>
-  {{title}}
-</h1>
+<nav >
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+    <ul *ngIf="mostrarMenu" class="right hide-on-med-and-down">
+      <li><a materialize="sideNav" [materializeParams]="[
+        {edge: right,
+          draggable: true,
+          closeOnClick: true          
+        }]" [materializeActions]="sideNavActions"
+          data-activates="slide-out"><i class="material-icons">menu</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<ul *ngIf="mostrarMenu" id="slide-out" class="side-nav">
+  <li><a><i class="material-icons">cloud</i>First Link With Icon</a></li>
+  <li><a>Second Link</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li routerLinkActive="active"><a routerLink="login">Login</a></li>
+  <li routerLinkActive="active"><a routerLink="usuarios">Usuarios</a></li>
+</ul>
+
+<div class="container">
+
+  <router-outlet></router-outlet>
+</div>
