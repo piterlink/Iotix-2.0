@@ -8,12 +8,13 @@ import { UsuariosService } from "app/usuarios/usuarios.service";
 })
 export class UsuariosComponent implements OnInit {
   usuarios: any[];
+  usuariosMobile: any[];
 
   constructor(private usuariosService: UsuariosService) { }
 
   ngOnInit() {
     this.usuarios = this.usuariosService.getAll();
-    console.log(this.usuarios)
+    this.usuariosMobile = this.usuariosService.getAllMobile();
   }
 
 }

@@ -2,10 +2,26 @@
   Lista de Usuários
 </h5>
 <div class="row">
-  <div class="col s12 m6">
-    <div class="collection">
-      <a class="collection-item" *ngFor="let usuario of usuarios" [routerLink]="[usuario.id]">{{ usuario.id }} - {{ usuario.nome }}</a>
-    </div>
+  <div class="col s12 l6">
+     <div class="collection show-on-medium-and-down hide-on-large-only">
+      <a class="collection-item" *ngFor="let usuario of usuariosMobile" [routerLink]="[usuario.id]">{{ usuario.id }} - Nome: {{ usuario.nome }}</a>
+    </div> 
+    <table class="striped highlight hide-on-med-and-down">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios" [routerLink]="[usuario.id]">
+          <td>{{ usuario.id }}</td>
+          <td> {{ usuario.nome }}</td>
+          <td> {{ usuario.email }}</td>
+        </tr>
+      </tbody>
+    </table>   
   </div>
   <div class="col s12 m6">
     <router-outlet></router-outlet>

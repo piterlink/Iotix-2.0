@@ -1,19 +1,19 @@
-<nav >
+<nav *ngIf="mostrarMenu" class=" indigo">
   <div class="nav-wrapper">
-    <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
-    <ul *ngIf="mostrarMenu" class="right hide-on-med-and-down">
-      <li><a materialize="sideNav" [materializeParams]="[
-        {edge: right,
-          draggable: true,
-          closeOnClick: true          
-        }]" [materializeActions]="sideNavActions"
-          data-activates="slide-out"><i class="material-icons">menu</i></a></li>
+    <a class="brand-logo" style="position:relative">Iotix</a>
+    <ul  class="left ">
+      <li>
+        <a materialize="sideNav" [materializeParams]="[{edge: right,draggable: true,closeOnClick: true}]" [materializeActions]="sideNavActions"
+          data-activates="slide-out">
+          <i class="material-icons">menu</i>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
 
 
-<ul *ngIf="mostrarMenu" id="slide-out" class="side-nav">
+<ul *ngIf="mostrarMenu" id="slide-out" class="side-nav ">
   <li><a><i class="material-icons">cloud</i>First Link With Icon</a></li>
   <li><a>Second Link</a></li>
   <li>
@@ -24,6 +24,5 @@
 </ul>
 
 <div class="container">
-
   <router-outlet></router-outlet>
 </div>

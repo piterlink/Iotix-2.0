@@ -1,16 +1,31 @@
-<h5>Login</h5>
-<div class="row">
-  <div class="input-field col s12">
-    <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="validate">
-    <label class="active" for="usuario">Usuario</label>
-  </div>
+<div class="row center-align">
+  <h1>IoTix</h1>
 </div>
 <div class="row">
-  <div class="input-field col s12">
-    <input [(ngModel)]="usuario.senha" id="senha" type="password" class="validate">
-    <label class="active" for="senha">Senha</label>
+  <div class="z-depth-4" style="height: 430px; padding: 20px 15px; max-width: 400px; margin:0 auto; display: block">
+    <div class="row">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Girafa.jpg" alt="" style="margin:0 auto; display:block; width:100px; height:100px"
+        class="circle z-depth-4">
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="validate">
+        <label class="active" for="usuario">Usuario</label>
+      </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">verified_user</i>
+        <input [(ngModel)]="usuario.senha" id="senha" type="password" class="validate">
+        <label class="active" for="senha">Senha</label>
+      </div>
+      <div class="col s12">
+        <button class="btn waves-effect waves-light btn-large green" style="width: 100%" type="submit" (click)="autenticar()">Entrar</button>
+      </div>
+      <div class="col s12">
+        <span style="float:left; position:relative">Cadastrar</span>
+        <span style="float:right; position:relative"> Esqueceu sua senha ?</span>
+      </div>
+    </div>
   </div>
+
 </div>
-<button class="btn waves-effect waves-light" type="submit" (click)="autenticar()">
-  Entrar <i class="material-icons right">send</i>
-</button>

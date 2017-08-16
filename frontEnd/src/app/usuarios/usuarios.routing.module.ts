@@ -14,16 +14,12 @@ import { UsuariosDeactivateGuard } from "app/guards/usuarios.deactivate.guard";
 
 const UsuariosRoutes: Routes = [
     {
-        path: "", component: UsuariosComponent,
-        canActivateChild: [UsuariosGuard],
+        path: "", component: UsuariosComponent, canActivateChild: [UsuariosGuard],
         children: [
             { path: "novo", component: UsuarioFormularioComponent },
             { path: ":id", component: UsuarioDetalheComponent },
-            {
-                path: ":id/editar", component: UsuarioFormularioComponent,
-                canDeactivate: [UsuariosDeactivateGuard]
-            },
-        ]
+            { path: ":id/editar", component: UsuarioFormularioComponent, canDeactivate: [UsuariosDeactivateGuard] },
+        ],
     },
 
 ]
